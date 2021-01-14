@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/tu_sport.iml" filepath="$PROJECT_DIR$/tu_sport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tu_sport backend/tu_sport backend.iml" filepath="$PROJECT_DIR$/tu_sport backend/tu_sport backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tu_sport-backend/tu_sport-backend.iml" filepath="$PROJECT_DIR$/tu_sport-backend/tu_sport-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tu_sport-ui/tu_sport-ui.iml" filepath="$PROJECT_DIR$/tu_sport-ui/tu_sport-ui.iml" />
+    </modules>
+  </component>
+</project>

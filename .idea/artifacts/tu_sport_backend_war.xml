@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="tu_sport backend:war">
+    <output-path>$PROJECT_DIR$/tu_sport backend/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>tu_sport backend</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="tu_sport backend-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="tu_sport backend:war exploded" />
+    </root>
+  </artifact>
+</component>
