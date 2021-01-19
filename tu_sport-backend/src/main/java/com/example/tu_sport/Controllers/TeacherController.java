@@ -37,17 +37,20 @@ public class TeacherController {
     }
 
 
-    @PutMapping("/save")
+    @PostMapping("/save")
     public ResponseEntity saveOrUpdateTeachers(@RequestBody Teachers form) {
-        boolean isNew = form.getId() == null;
+        boolean isNew = teacherRepository.findByEmail(form.getEmail().toLowerCase()).isEmpty();
         Map<String, Object> s = new HashMap<>();
-        s.put("teacher", teacherRepository.save(form));
         if(isNew) {
             s.put("message", "Успешно записан.");
+            s.put("teacher", teacherRepository.save(form));
         }
         else
         {
             s.put("message", "Успешно редактиран.");
+            Optional<Teachers> t = teacherRepository.findByEmail(form.getEmail());
+            teacherRepository.delete(t.orElse(null));
+            s.put("teacher", teacherRepository.save(form));
         }
         return new ResponseEntity<>(s ,HttpStatus.OK);
     }

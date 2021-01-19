@@ -7,6 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SportsRepo extends JpaRepository<Sport, Long> {
-    @Query("SELECT name, day, time FROM Sport")
-    List<Object> getTable();
+
 }

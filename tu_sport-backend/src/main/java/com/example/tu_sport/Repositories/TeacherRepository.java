@@ -1,5 +1,6 @@
 package com.example.tu_sport.Repositories;
 
+import com.example.tu_sport.Entities.Students;
 import com.example.tu_sport.Entities.Teachers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,4 +17,8 @@ public interface TeacherRepository extends JpaRepository <Teachers,Long> {
 
 
     Teachers findTeacherById(Long id);
+
+
+    @Query("SELECT s FROM Teachers s WHERE  lower(s.email) = :email")
+    Optional<Teachers> findByEmail(String email);
 }

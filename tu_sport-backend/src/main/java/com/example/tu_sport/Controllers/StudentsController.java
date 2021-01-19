@@ -2,6 +2,7 @@ package com.example.tu_sport.Controllers;
 
 import com.example.tu_sport.Entities.Courses;
 import com.example.tu_sport.Entities.Students;
+import com.example.tu_sport.Entities.Teachers;
 import com.example.tu_sport.Repositories.StudentsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,18 +40,22 @@ public class StudentsController {
         return  null;
     }
 
-    @PutMapping("/save")
+    @PostMapping("/save")
     public  ResponseEntity saveOrUpdateStudents(@RequestBody Students form) {
-        boolean isNew = form.getId() == null;
+        Boolean isNew = studentsRepo.findByEmail(form.getEmail().toLowerCase()).isEmpty();
         Map<String, Object> p = new HashMap<>();
-        p.put("student", studentsRepo.save(form));
         if(isNew) {
             p.put("message", "Успешно записан!");
+            p.put("student", studentsRepo.save(form));
         }
         else
         {
             p.put("message", "Успешно редактиран!");
+            Optional<Students> s = studentsRepo.findByEmail(form.getEmail());
+            studentsRepo.delete(s.orElse(null));
+            p.put("student", studentsRepo.save(form));
         }
+
         return  new ResponseEntity<>(p , HttpStatus.OK);
     }
 

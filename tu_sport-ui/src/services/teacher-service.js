@@ -35,7 +35,7 @@ class TeacherService {
   }
 
   saveTeacher (form) {
-    return axios.put(API_URL + '/save',
+    return axios.post(API_URL + '/save',
       {
         id: form.id,
         firstName: form.firstName,

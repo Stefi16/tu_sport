@@ -60,7 +60,7 @@ export default {
     saveTeacher () {
       TeacherServices.saveTeacher(this.form).then(
         response => {
-          this.message = response.data
+          this.message = response.data.message
         }
       )
     }
